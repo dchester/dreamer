@@ -87,8 +87,7 @@ $ dreamer schema-dump
 $ dreamer schema-sync
 
 # create or alter a particualr table
-$ dreamer schema-sync \[table_name\]
-
+$ dreamer schema-sync [table name]
 ```
 
 ##### But markdown isn't a schema definition language...
@@ -141,7 +140,7 @@ Use the `dreamer` command-line tool to view routes and resources.
 
 ```
 # list resources
-$ dreamer resources \[route-prefix\]
+$ dreamer resources [route prefix]
 ```
 
 ##### But markdown is just wrong for this...

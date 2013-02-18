@@ -44,7 +44,6 @@ List your schema in markdown format.  Use third-level headings for table names w
 ##### Example schema
 
     ### users
-
     End users of the application
     ```
     - username    unique,alpha
@@ -54,9 +53,7 @@ List your schema in markdown format.  Use third-level headings for table names w
     ```
     
     ### categories
-
     Content categories
-
     ```
     - name
     - description   nullable
@@ -67,10 +64,10 @@ List your schema in markdown format.  Use third-level headings for table names w
 
 Annotate columns to give hints about data types and validation rules.  Separate them with commas; mix them all up together.
 
-- `string`,`integer`,`float`,`boolean` - sepcify a data type
-- `unique`, `nullable` - specify a constraint or lack thereof
-- `email`,`url`,`alpha` - specify a validation
-- `default=<value>` - specify a default value
+- specify a data type: `string`,`integer`,`float`,`boolean`
+- specify a constraint or lack thereof: `unique`, `nullable` 
+- specify a validation: `email`,`url`,`alpha` 
+- specify a default value: `default=<value>`
 
 ##### From the command line
 
@@ -90,7 +87,7 @@ $ dreamer schema-sync
 $ dreamer schema-sync [table name]
 ```
 
-##### But markdown isn't a schema definition language...
+##### "But markdown isn't a schema definition language..."
 
 If specifying a database schema in markdown is too silly for your taste or makes you feel crazy, you can skip that part and either define the schema in JSON, or you can set up your own models with Sequelize directly and pass those in to `dreamer.initialize`.
 
@@ -143,7 +140,7 @@ Use the `dreamer` command-line tool to view routes and resources.
 $ dreamer resources [route prefix]
 ```
 
-##### But markdown is just wrong for this...
+##### "But markdown is just wrong for this..."
 
 You can pass in your own `resources` JSON configuration to `dreamer.initialize`.  For more flexibility than that, find your resource under `dream.resources` and hook into request milestones from its epilogue controller. 
 

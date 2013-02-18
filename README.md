@@ -1,6 +1,6 @@
 # Dreamer
 
-REST service framework for the lazy
+Markdown-powered REST service framework for the lazy
 
 ## Introduction
 

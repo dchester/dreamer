@@ -1,0 +1,7 @@
+{
+  "database": {
+    "dialect": "sqlite",
+    "storage": "/tmp/doubledare.sqlite"
+  }
+}
+

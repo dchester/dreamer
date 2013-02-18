@@ -32,7 +32,7 @@ In configuration specify details about the database and other settings.
     "username": "sample"
     "password": "sample"
   },
-  server: {
+  "server": {
     "jsonp": false,
     "port": 8000
   }

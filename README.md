@@ -15,7 +15,6 @@ At a minimum you'll need a configuration file, a schema definition, and a listin
 ```
 config/
  +--- default.json
-
 docs/
  +--- schema.md
  +--- resources.md
@@ -25,7 +24,7 @@ docs/
 
 In configuration specify details about the database and other settings.
 
-```
+```json
 {
   "database": {
     "dialect": "mysql",
@@ -33,8 +32,8 @@ In configuration specify details about the database and other settings.
     "username": "sample"
     "password": "sample"
   },
-  jsonp: false,
-  port: 8000
+  "jsonp": false,
+  "port": 8000
 }
 ```
 
@@ -44,28 +43,25 @@ List your schema in markdown format.  Use third-level headings for table names w
 
 ##### Example schema
 
-```
-### users
+    ### users
 
-End users of the application
-\`\`\`
-- username    unique,alpha
-- email       email
-- name
-- birthdate   date
-\`\`\`
+    End users of the application
+    ```
+    - username    unique,alpha
+    - email       email
+    - name
+    - birthdate   date
+    ```
+    
+    ### categories
 
-### categories
+    Content categories
 
-Content categories
-
-\`\`\`
-- name
-- description   nullable
-- is_active     default=true
-\`\`\`
-
-```
+    ```
+    - name
+    - description   nullable
+    - is_active     default=true
+    ```
 
 ##### Column annotations
 
@@ -111,37 +107,33 @@ Get details about a particular user
 
 Each route may have an associated example response.  Dreamer will match the structure of real responses to the structure of the example specified in the markdown.  Specify example responses with a sixth-level heading followed by a code block:
 
-```
-### GET /users/:user_id
-Get details about a particular user
-
-###### Example Response
-\`\`\`
-{
-  "name": "James Cooper",
-  "username": "jamescooper",
-  "email": "jimmycooper@jimzindustries.biz"
-}
-\`\`\`
-```
+    ### GET /users/:user_id
+    Get details about a particular user
+    
+    ###### Example Response
+    ```
+    {
+      "name": "James Cooper",
+      "username": "jamescooper",
+      "email": "jimmycooper@jimzindustries.biz"
+    }
+    ```
 
 You may also specify request parameters.  Use a sixth-level heading followed by via a markdown table:
 
-```
-### POST /users
-Create a new user
+    ### POST /users
+    Create a new user
+    
+    ###### Request Parameters
 
-###### Request Parameters
-
-\`\`\`
-name | required? | description
------+-----------+------------
-name | required | Full legal name of the user
-username | required | Username
-email | required | Email address
-birthdate | required | User birthdate
-\`\`\`
-```
+    ```
+    name | required? | description
+    -----+-----------+------------
+    name | required | Full legal name of the user
+    username | required | Username
+    email | required | Email address
+    birthdate | required | User birthdate
+    ```
 
 ##### From the command line
 
@@ -172,7 +164,4 @@ Dreamer implements and expects some conventions to be followed:
 - Routes, tables, and column names are lowercase separated by underscores
 - Every table has a primary key called "id", whether you specify it yourself or not
 - The last path component for each route refers to the model in question
-
-
-
 

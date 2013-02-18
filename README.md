@@ -29,7 +29,7 @@ In configuration specify details about the database and other settings.
   "database": {
     "dialect": "mysql",
     "database": "sampledb",
-    "username": "sample"
+    "username": "sample",
     "password": "sample"
   },
   "server": {

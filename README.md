@@ -123,7 +123,6 @@ You may also specify request parameters.  Use a sixth-level heading followed by 
     Create a new user
     
     ###### Request Parameters
-
     ```
     name | required? | description
     -----+-----------+------------
@@ -151,8 +150,8 @@ You can pass in your own `resources` JSON configuration to `dreamer.initialize`.
 Start the server up with `dreamer run`.
 
 ```
-$ PORT=4001 dreamer run
-Server listening on port 4001...
+$ dreamer run
+Server listening on port 3000...
 ```
 
 ## Conventions and assumptions

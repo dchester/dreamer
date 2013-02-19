@@ -14,7 +14,7 @@ See [dreamer-example](http://github.com/dchester/dreamer-example) for a working 
 
 ##### Project directory structure
 
-At a minimum you'll need a configuration file, a schema definition, and a listing of resources.
+At a minimum you'll need a configuration file, a schema definition, and a listing of resources.  For more flexibility you can include your own logic as custom extensions.
 
 ```
 config/
@@ -22,6 +22,8 @@ config/
 docs/
   ├ schema.md
   └ resources.md
+extensions/
+  └ custom.js
 ```
 
 ##### Configuration
@@ -148,7 +150,7 @@ $ dreamer resources [route prefix]
 
 ##### "But markdown is just wrong for this..."
 
-You can pass in your own `resources` JSON configuration to `dreamer.initialize`.  For more flexibility than that, find your resource under `dream.resources` and hook into request milestones from its epilogue controller. 
+You can pass in your own `resources` JSON configuration to `dreamer.initialize`.  For more flexibility than that, find your resource under `dream.resources` from within an extension and hook into request milestones from its epilogue controller. 
 
 ## Run the server
 

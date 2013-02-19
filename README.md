@@ -45,7 +45,7 @@ In configuration specify details about the database and other settings.
 
 ## Schema
 
-List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  See a full working [example schema](https://github.com/dchester/dreamer-example/docs/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
+List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  See a full working [example schema](https://github.com/dchester/dreamer-example/blob/master/docs/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
 
 ##### Example schema
 
@@ -104,7 +104,7 @@ If specifying a database schema in markdown is too silly for your taste or makes
 
 ## Resources
 
-List resources in markdown format.  For each route use a third-level heading starting with the HTTP verb followed by the Sinatra-style URL path.  See a full working [example resources listing](https://github.com/dchester/dreamer-example/docs/resources.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
+List resources in markdown format.  For each route use a third-level heading starting with the HTTP verb followed by the Sinatra-style URL path.  See a full working [example resources listing](https://github.com/dchester/dreamer-example/blob/master/docs/resources.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
 
 We may have a route that gives back a listing of blogs:
 

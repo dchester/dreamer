@@ -8,9 +8,11 @@ With dreamer, you specify the database schema and HTTP resources in markdown(!),
 
 Under the hood the magic comes from [Express](http://expressjs.com/), [Sequelize](http://www.sequelizejs.com/), and [Epilogue](https://github.com/dchester/epilogue).  As your project evolves you can work directly with those layers as you need more flexibility.
 
-See [dreamer-example](http://github.com/dchester/dreamer-example) for a working example that implements a backend RESTful service for web logs.
+##### Working example
 
-### Project directory structure
+See [dreamer-example](http://github.com/dchester/dreamer-example) for a working example uses Dreamer to implement a backend RESTful service for web logs.
+
+##### Project directory structure
 
 At a minimum you'll need a configuration file, a schema definition, and a listing of resources.
 
@@ -22,7 +24,7 @@ docs/
   └ resources.md
 ```
 
-### Configuration
+##### Configuration
 
 In configuration specify details about the database and other settings.
 
@@ -43,27 +45,31 @@ In configuration specify details about the database and other settings.
 
 ## Schema
 
-List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.
+List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  See a full working [example schema](https://github.com/dchester/dreamer-example/docs/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
 
 ##### Example schema
 
-    ### users
-    End users of the application
+    ### Blogs
+    Whole entire blogs.
+    
     ```
-    - username    unique,alpha
-    - email       email
     - name
-    - birthdate   date
+    - description
+    - author_id
     ```
     
-    ### categories
-    Content categories
+    ### Authors
+    People who write blogs and comment on them.
+    
     ```
     - name
-    - description   nullable
-    - is_active     default=true
+    - handle       alpha,unique
+    - email        email
+    - website      nullable
+    - signup_date
     ```
-
+    ...
+    
 ##### Column annotations
 
 Annotate columns to give hints about data types and validation rules.  Separate them with commas; mix them all up together.
@@ -98,41 +104,40 @@ If specifying a database schema in markdown is too silly for your taste or makes
 
 ## Resources
 
-List resources in markdown format.  For each route use a third-level heading starting with the HTTP verb followed by the Sinatra-style URL path.  For example, we may have a route that gives back details about a category:
+List resources in markdown format.  For each route use a third-level heading starting with the HTTP verb followed by the Sinatra-style URL path.  See a full working [example resources listing](https://github.com/dchester/dreamer-example/docs/resources.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
 
-```
-### GET /users/:user_id
-Get details about a particular user
-```
+We may have a route that gives back a listing of blogs:
+
+     ### GET /blogs
+     Get a listing of blogs
 
 Each route may have an associated example response.  Dreamer will match the structure of real responses to the structure of the example specified in the markdown.  Specify example responses with a sixth-level heading followed by a code block:
 
-    ### GET /users/:user_id
-    Get details about a particular user
-    
+   
+    ### GET /blogs
+    Get a listing of blogs
+
     ###### Example Response
-    ```
-    {
-      "name": "James Cooper",
-      "username": "jamescooper",
-      "email": "jimmycooper@jimzindustries.biz"
-    }
+    ```json
+    [
+      {
+        "id": 1000,
+        "name": "The trials of being James"
+      }
+    ]
     ```
 
 You may also specify request parameters.  Use a sixth-level heading followed by via a markdown table:
 
-    ### POST /users
-    Create a new user
-    
+    ### POST /blogs
+    Create a new blog
+
     ###### Request Parameters
-    ```
-    name      | required? | description
-    ----------|-----------|------------
-    name      | required  | Full legal name of the user
-    username  | required  | Username
-    email     | required  | Email address
-    birthdate | required  | User birthdate
-    ```
+    name        | required? | description
+    ------------|-----------|------------
+    name        | required  | Name of the blog
+    author_id   | required  | Author of the blog
+    description | optional  | Description of the blog
 
 ##### From the command line
 

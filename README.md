@@ -8,6 +8,8 @@ With dreamer, you specify the database schema and HTTP resources in markdown(!),
 
 Under the hood the magic comes from [Express](http://expressjs.com/), [Sequelize](http://www.sequelizejs.com/), and [Epilogue](https://github.com/dchester/epilogue).  As your project evolves you can work directly with those layers as you need more flexibility.
 
+See [dreamer-example](http://github.com/dchester/dreamer-example) for a working example that implements a backend RESTful service for web logs.
+
 ### Project directory structure
 
 At a minimum you'll need a configuration file, a schema definition, and a listing of resources.

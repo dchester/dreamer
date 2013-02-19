@@ -51,7 +51,6 @@ List your schema in markdown format.  Use third-level headings for table names w
 
     ### Blogs
     Whole entire blogs.
-    
     ```
     - name
     - description
@@ -60,7 +59,6 @@ List your schema in markdown format.  Use third-level headings for table names w
     
     ### Authors
     People who write blogs and comment on them.
-    
     ```
     - name
     - handle       alpha,unique

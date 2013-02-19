@@ -161,4 +161,4 @@ Dreamer implements and expects some conventions to be followed:
 - Routes, tables, and column names are lowercase separated by underscores
 - Every table has a primary key called "id", whether you specify it yourself or not
 - The last path component for each route refers to the model in question
-
+- Table names and URI endpoints are are plural

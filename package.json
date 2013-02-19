@@ -1,0 +1,32 @@
+{
+  "name": "dreamer",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "David Chester <david@fmail.co.uk>",
+  "description": "Markdown-powered REST service framework",
+  "main": "./lib/dreamer.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dchester/dreamer.git"
+  },
+  "keywords": [
+    "rest",
+    "framework",
+    "markdown"
+  ],
+  "dependencies": {
+    "express": "*",
+    "config": "*",
+    "sequelize": "*",
+    "marked": "*",
+    "epilogue": "*",
+    "epilogue": "*",
+  },
+  "devDependencies": {
+    "nodeunit"    :  "*"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8"
+  }
+}

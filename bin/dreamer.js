@@ -7,28 +7,28 @@ var Table = require('cli-table');
 var express = require('express');
 var app = express();
 
-var dreamer = require('./lib/dreamer');
+var dreamer = require('../lib/dreamer');
 
 var command = process.argv[2];
 var parameter = process.argv[3];
+
+var server = config.server || {};
+
+app.configure(function(){
+	app.set('port', process.env.PORT || server.port || 3000);
+	app.use(express.favicon());
+	app.use(express.logger('dev'));
+	app.use(express.bodyParser());
+	app.use(express.methodOverride());
+	app.use(app.router);
+	app.use(express.static(path.join(__dirname, 'public')));
+});
 
 var dream = dreamer.initialize({ app: app });
 
 var commands = {
 
 	'run': function() {
-
-		var server = config.server || {};
-
-		app.configure(function(){
-			app.set('port', process.env.PORT || server.port || 3000);
-			app.use(express.favicon());
-			app.use(express.logger('dev'));
-			app.use(express.bodyParser());
-			app.use(express.methodOverride());
-			app.use(app.router);
-			app.use(express.static(path.join(__dirname, 'public')));
-		});
 
 		http.createServer(app).listen(app.get('port'), function() {
 			console.log("Server listening on port " + app.get('port') + "...");
@@ -58,12 +58,12 @@ var commands = {
 		dream.schema.forEach(function(scheme) {
 
 			var table = new Table({
-				head: [scheme.name, '*'],
+				head: [scheme.name, 'type', 'extra'],
 				style: { compact: true, 'padding-left': 1, 'padding-right': 1 }
 			});
 
 			scheme.columns.forEach(function(column) {
-				table.push([column.name, column.attributes.join(',')]);
+				table.push([column.name, column.dataType, column.attributes.join(',')]);
 			});
 
 			console.log(table.toString());

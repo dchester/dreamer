@@ -1,4 +1,8 @@
 - lots of verbose parsing error messages
 - foreign key associations / relationships
-- 
-
+- implement "required?" request parameters
+- implement default of "NOW"
+- show data types in schema listing
+- set up package.json w/ deps and bin/scripts
+- get epiloge to report friendlier sqlite errors
+- investigate PUT 404s

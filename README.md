@@ -1,6 +1,6 @@
 # Dreamer
 
-Markdown-powered REST service framework for the lazy
+Markdown-powered REST service framework
 
 ## Introduction
 
@@ -29,11 +29,13 @@ In configuration specify details about the database and other settings.
   "database": {
     "dialect": "mysql",
     "database": "sampledb",
-    "username": "sample"
+    "username": "sample",
     "password": "sample"
   },
-  "jsonp": false,
-  "port": 8000
+  "server": {
+    "jsonp": false,
+    "port": 8000
+  }
 }
 ```
 
@@ -121,7 +123,6 @@ You may also specify request parameters.  Use a sixth-level heading followed by 
     Create a new user
     
     ###### Request Parameters
-
     ```
     name | required? | description
     -----+-----------+------------
@@ -149,8 +150,8 @@ You can pass in your own `resources` JSON configuration to `dreamer.initialize`.
 Start the server up with `dreamer run`.
 
 ```
-$ PORT=4001 dreamer run
-Server listening on port 4001...
+$ dreamer run
+Server listening on port 3000...
 ```
 
 ## Conventions and assumptions

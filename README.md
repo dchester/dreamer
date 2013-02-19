@@ -6,7 +6,7 @@ Markdown-powered REST service framework
 
 With dreamer, you specify the database schema and HTTP resources in markdown(!), and you can stop there if you want.  Just by documenting the schema and resources you get a working read/write RESTful service.
 
-Under the hood the magic comes from Express, Sequelize, and epilogue.  As your project evolves you can work directly with those layers as you need more flexibility.
+Under the hood the magic comes from [Express](http://expressjs.com/), [Sequelize](http://www.sequelizejs.com/), and [Epilogue](https://github.com/dchester/epilogue).  As your project evolves you can work directly with those layers as you need more flexibility.
 
 ### Project directory structure
 
@@ -14,10 +14,10 @@ At a minimum you'll need a configuration file, a schema definition, and a listin
 
 ```
 config/
- +--- default.json
+  └ default.json
 docs/
- +--- schema.md
- +--- resources.md
+  ├ schema.md
+  └ resources.md
 ```
 
 ### Configuration
@@ -124,12 +124,12 @@ You may also specify request parameters.  Use a sixth-level heading followed by 
     
     ###### Request Parameters
     ```
-    name | required? | description
-    -----+-----------+------------
-    name | required | Full legal name of the user
-    username | required | Username
-    email | required | Email address
-    birthdate | required | User birthdate
+    name      | required? | description
+    ----------|-----------|------------
+    name      | required  | Full legal name of the user
+    username  | required  | Username
+    email     | required  | Email address
+    birthdate | required  | User birthdate
     ```
 
 ##### From the command line
@@ -161,4 +161,4 @@ Dreamer implements and expects some conventions to be followed:
 - Routes, tables, and column names are lowercase separated by underscores
 - Every table has a primary key called "id", whether you specify it yourself or not
 - The last path component for each route refers to the model in question
-
+- Table names and URI endpoints are are plural

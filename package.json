@@ -19,11 +19,10 @@
     "config": "*",
     "sequelize": "*",
     "marked": "*",
-    "epilogue": "*",
-    "epilogue": "*",
+    "epilogue": "*"
   },
   "devDependencies": {
-    "nodeunit"    :  "*"
+    "nodeunit":  "*"
   },
   "license": "MIT",
   "engines": {

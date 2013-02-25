@@ -22,7 +22,8 @@
     "epilogue": "*",
     "cli-table": "*",
     "lingo": "*",
-    "sqlite3": "*"
+    "sqlite3": "*",
+    "async": "*"
   },
   "devDependencies": {
     "nodeunit":  "*"

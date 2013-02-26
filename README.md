@@ -45,9 +45,11 @@ In configuration specify details about the database and other settings.
 }
 ```
 
+To use SQLite instead of MySQL, specify `sqlite` for the dialect, and add a `storage` key pointing to the file on disk.
+
 ## Schema
 
-List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  See a full working [example schema](https://github.com/dchester/dreamer-example/blob/master/docs/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
+List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  Each table gets an `id` column whether you specify it or not.  See a full working [example schema](https://github.com/dchester/dreamer-example/blob/master/docs/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
 
 ##### Example schema
 
@@ -56,7 +58,7 @@ List your schema in markdown format.  Use third-level headings for table names w
     ```
     - name
     - description
-    - author_id
+    - author_id    fk=authors.id
     ```
     
     ### Authors
@@ -78,6 +80,7 @@ Annotate columns to give hints about data types and validation rules.  Separate 
 - specify a constraint or lack thereof: `unique`, `nullable` 
 - specify a validation: `email`,`url`,`alpha` 
 - specify a default value: `default=<value>`
+- specify a foreign key: `fk=<table.column>`
 
 ##### From the command line
 

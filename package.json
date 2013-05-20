@@ -23,7 +23,8 @@
     "cli-table": "*",
     "lingo": "*",
     "sqlite3": "*",
-    "async": "*"
+    "async": "*",
+    "armrest": "*"
   },
   "devDependencies": {
     "nodeunit":  "*"

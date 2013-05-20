@@ -19,11 +19,12 @@ At a minimum you'll need a configuration file, a schema definition, and a listin
 ```
 config/
   └ default.json
-docs/
+spec/
   ├ schema.md
   └ resources.md
 extensions/
   └ custom.js
+app.js
 ```
 
 ##### Configuration
@@ -37,19 +38,42 @@ In configuration specify details about the database and other settings.
     "database": "sampledb",
     "username": "sample",
     "password": "sample"
-  },
-  "server": {
-    "jsonp": false,
-    "port": 8000
   }
 }
 ```
 
 To use SQLite instead of MySQL, specify `sqlite` for the dialect, and add a `storage` key pointing to the file on disk.
 
+
+## App
+
+Set up your application as a normal express project, but instead of calling `app.listen()`, initialize a dreamer instance and call `dream()`.
+
+```
+var http = require('http');
+var express = require('express');
+var Dreamer = require('dreamer');
+
+var app = express();
+
+app.configure(function(){
+	app.set('port', process.env.PORT || 3000);
+	app.use(express.bodyParser());
+	app.use(app.router);
+});
+
+var dreamer = Dreamer.initialize({
+	app: app,
+	schema: "spec/schema.md",
+	resources: "spec/resources.md"
+});
+
+dreamer.dream();
+```
+
 ## Schema
 
-List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  Each table gets an `id` column whether you specify it or not.  See a full working [example schema](https://github.com/dchester/dreamer-example/blob/master/docs/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
+List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  Each table gets an `id` column whether you specify it or not.  See a full working [example schema](https://github.com/dchester/dreamer-example/blob/master/spec/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
 
 ##### Example schema
 
@@ -84,20 +108,20 @@ Annotate columns to give hints about data types and validation rules.  Separate 
 
 ##### From the command line
 
-Use the `dreamer` command-line tool to view and interact with the schema.  Each command takes an optional parameter to limit the command to a particular table.
+Run your app from the command line to view and interact with the schema.  Each command takes an optional parameter to limit the command to a particular table.
 
 ```
 # list all tables
-$ dreamer schema 
+$ node app schema 
 
 # show create table SQL statements
-$ dreamer schema-dump
+$ node app schema-dump
 
 # create or alter the schema
-$ dreamer schema-sync
+$ node app schema-sync
 
 # create or alter a particualr table
-$ dreamer schema-sync [table name]
+$ node app schema-sync [table name]
 ```
 
 ##### "But markdown isn't a schema definition language..."
@@ -107,7 +131,7 @@ If specifying a database schema in markdown is too silly for your taste or makes
 
 ## Resources
 
-List resources in markdown format.  For each route use a third-level heading starting with the HTTP verb followed by the Sinatra-style URL path.  See a full working [example resources listing](https://github.com/dchester/dreamer-example/blob/master/docs/resources.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
+List resources in markdown format.  For each route use a third-level heading starting with the HTTP verb followed by the Sinatra-style URL path.  See a full working [example resources listing](https://github.com/dchester/dreamer-example/blob/master/spec/resources.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
 
 We may have a route that gives back a listing of blogs:
 
@@ -157,10 +181,10 @@ You can pass in your own `resources` JSON configuration to `dreamer.initialize`.
 
 ## Run the server
 
-Start the server up with `dreamer run`.
+Start the server up with `node app run`.
 
 ```
-$ dreamer run
+$ node app run
 Server listening on port 3000...
 ```
 

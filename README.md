@@ -49,7 +49,7 @@ To use SQLite instead of MySQL, specify `sqlite` for the dialect, and add a `sto
 
 Set up your application as a normal express project, but instead of calling `app.listen()`, initialize a dreamer instance and call `dream()`.
 
-```
+```javascript
 var http = require('http');
 var express = require('express');
 var Dreamer = require('dreamer');

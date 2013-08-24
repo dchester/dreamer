@@ -105,6 +105,7 @@ Annotate columns to give hints about data types and validation rules.  Separate 
 - specify a validation: `email`,`url`,`alpha` 
 - specify a default value: `default=<value>`
 - specify a foreign key: `fk=<table.column>`
+- specify an enum: `enum=(published|draft|deleted)`
 
 ##### From the command line
 

@@ -23,7 +23,12 @@ app.configure(function(){
 	app.use(express.static(path.join(__dirname, 'public')));
 });
 
-var dream = dreamer.initialize({ app: app });
+console.log(config.database);
+
+var dream = dreamer.initialize({
+	app: app,
+	database: config.database
+});
 
 var commands = require('./lib/commands').initialize({
 	app: app,

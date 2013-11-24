@@ -73,7 +73,7 @@ dreamer.dream();
 
 ## Schema
 
-List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  Each table gets an `id` column whether you specify it or not.  See a full working [example schema](https://github.com/dchester/dreamer-example/blob/master/spec/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
+List your schema in markdown format.  Use third-level headings for table names which may be followed by description.  Then list the columns in a code section, one column per line, with optional annotations to specify column details.  The framework will intuit appropriate data types, which you may override.  By default columns will be non-nullable.  Each table gets an `id` column whether you specify it or not.  See a full working [example schema](https://github.com/dchester/dreamer-example/blob/master/docs/schema.md) from [dreamer-example](https://github.com/dchester/dreamer-example).
 
 ##### Example schema
 

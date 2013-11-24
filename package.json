@@ -17,7 +17,7 @@
   "dependencies": {
     "express": "*",
     "config": "*",
-    "sequelize": "*",
+    "sequelize": "= v1.6.0",
     "marked": "*",
     "epilogue": "*",
     "cli-table": "*",

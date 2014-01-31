@@ -30,7 +30,7 @@ var dream = dreamer.initialize({
 	database: config.database
 });
 
-var commands = require('./lib/commands').initialize({
+var commands = require('../lib/commands').initialize({
 	app: app,
 	dream: dream
 });

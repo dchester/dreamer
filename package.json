@@ -1,7 +1,7 @@
 {
   "name": "dreamer",
   "preferGlobal": true,
-  "version": "0.0.1",
+  "version": "1.0.1",
   "author": "David Chester <david@fmail.co.uk>",
   "description": "Markdown-powered REST service framework",
   "main": "./lib/dreamer.js",
@@ -15,16 +15,16 @@
     "markdown"
   ],
   "dependencies": {
-    "express": "*",
-    "config": "*",
-    "sequelize": "= v1.6.0",
-    "marked": "*",
-    "epilogue": "*",
-    "cli-table": "*",
-    "lingo": "*",
-    "sqlite3": "*",
-    "async": "*",
-    "armrest": "*"
+    "express": "3.4.7",
+    "config": "0.4.35",
+    "sequelize": "1.7.0-rc9",
+    "marked": "0.3.1",
+    "epilogue": "0.2.1",
+    "cli-table": "0.3.0",
+    "lingo": "0.0.5",
+    "sqlite3": "2.2.0",
+    "async": "0.2.10",
+    "armrest": "2.2.0"
   },
   "devDependencies": {
     "nodeunit":  "*"

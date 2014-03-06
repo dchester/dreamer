@@ -1,7 +1,7 @@
 {
   "name": "dreamer",
   "preferGlobal": true,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "David Chester <david@fmail.co.uk>",
   "description": "Markdown-powered REST service framework",
   "main": "./lib/dreamer.js",

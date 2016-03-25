@@ -22,7 +22,7 @@
     "epilogue": "0.2.1",
     "cli-table": "0.3.0",
     "lingo": "0.0.5",
-    "sqlite3": "3.0.10",
+    "sqlite3": "3.1.2",
     "async": "0.2.10",
     "armrest": "4.3.0"
   },
